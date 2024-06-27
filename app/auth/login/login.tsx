@@ -2,9 +2,7 @@
 
 import { getFormProps, getInputProps, useForm } from '@conform-to/react';
 import { parseWithZod } from '@conform-to/zod';
-import { LockOutlined } from '@mui/icons-material';
-import { Avatar, Box, Button, Container, Grid, Link, TextField, Typography } from '@mui/material';
-import NextLink from 'next/link';
+import { Box, Button, Container, TextField, Typography } from '@mui/material';
 import { useFormState } from 'react-dom';
 
 import { loginAction } from 'lib/actions/auth';
@@ -22,12 +20,8 @@ export default function Login({ onSubmit }: { onSubmit: typeof loginAction }) {
   return (
     <Container component="main" maxWidth="xs">
       <Box className="mt-16 flex flex-col items-center">
-        <Avatar className="m-2" sx={{ bgcolor: 'secondary.main' }}>
-          <LockOutlined />
-        </Avatar>
-
-        <Typography component="h1" variant="h5">
-          Sign in
+        <Typography component="h1" variant="h5" color="primary">
+          業務管理システム
         </Typography>
         <Box component="form" action={action} {...getFormProps(form)} className="mt-2">
           <TextField
@@ -53,22 +47,11 @@ export default function Login({ onSubmit }: { onSubmit: typeof loginAction }) {
             error={!!fields.password.errors}
             helperText={fields.password.errors}
           />
+          <Typography>パスワードを忘れた方は管理者にご連絡ください</Typography>
           {form.errors && <div className="text-center text-red-600">{form.errors}</div>}
           <Button type="submit" fullWidth variant="contained" className="mb-4 mt-6">
             ログイン
           </Button>
-          <Grid container>
-            <Grid item xs>
-              <Link component={NextLink} href="#" variant="body2">
-                Forgot password?
-              </Link>
-            </Grid>
-            <Grid item>
-              <Link component={NextLink} href="register" variant="body2">
-                {"Don't have an account? Sign Up"}
-              </Link>
-            </Grid>
-          </Grid>
         </Box>
       </Box>
     </Container>

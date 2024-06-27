@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import Component from './dashboard';
 
 const meta = {
-  title: 'dashboard/Dashboard',
+  title: 'Dashboard',
   component: Component,
   args: {
     chart: {

@@ -30,6 +30,12 @@ export default function Navigation() {
         </ListItemIcon>
         <ListItemText primary="Dashboard" />
       </ListItemButton>
+      <ListItemButton component={NextLink} href="/employee" selected={pathname === '/employee'}>
+        <ListItemIcon>
+          <People />
+        </ListItemIcon>
+        <ListItemText primary="社員" />
+      </ListItemButton>
     </List>
   );
 }
