@@ -1,3 +1,8 @@
+import { Grid } from '@mui/material';
+
+import Chart from './chart';
+import Deposit from './deposit';
+import Order from './order';
 import { ChartData, DepositData, OrderData } from './types';
 
 export default function Dashboard({
@@ -5,14 +10,17 @@ export default function Dashboard({
   deposit,
   order,
 }: Readonly<{ chart: ChartData; deposit: DepositData; order: OrderData }>) {
-  // propsとして渡す
-  console.log(chart, deposit, order);
   return (
-    <div>
-      <div>
-        {/* chart  */} {/* deposits */}
-      </div>
-      <div>{/* recent orders */}</div>
-    </div>
+    <Grid container spacing={3}>
+      <Grid item md={8} lg={9}>
+        <Chart data={chart.data} />
+      </Grid>
+      <Grid item md={4} lg={3}>
+        <Deposit data={deposit.data} />
+      </Grid>
+      <Grid item xs={12}>
+        <Order data={order.data} />
+      </Grid>
+    </Grid>
   );
 }
